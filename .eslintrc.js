@@ -1,8 +1,7 @@
 module.exports = {
   root: true,
   env: {
-    node: true,
-    es6: true
+    node: true
   },
   extends: ["plugin:vue/essential", "@vue/prettier"],
   rules: {
