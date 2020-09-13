@@ -1,5 +1,5 @@
 <template>
-  <table class="w-screen">
+  <table>
     <thead>
       <tr class="bg-gray-100 border-b-2 border-gray-400">
         <th></th>
@@ -14,7 +14,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100">
+      <tr
+        class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
+      >
         <td></td>
         <td></td>
         <td></td>
