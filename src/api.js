@@ -6,6 +6,27 @@ const getAssets = () => {
     .then(res => res.data)
 }
 
+const getAsset = coin => {
+  return fetch(`${url}/assets/${coin}`)
+    .then(res => res.json())
+    .then(res => res.data)
+}
+
+const getAssetHistory = coin => {
+  const date = new Date()
+  const end = date.getTime()
+  date.setDate(date.getDate() - 1)
+  const start = date.getTime()
+
+  return fetch(
+    `${url}/assets/${coin}/history?interval=h1&start=${start}&end=${end}`
+  )
+    .then(res => res.json())
+    .then(res => res.data)
+}
+
 export default {
-  getAssets
+  getAssets,
+  getAsset,
+  getAssetHistory
 }
