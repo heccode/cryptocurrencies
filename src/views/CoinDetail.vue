@@ -54,9 +54,9 @@
             class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
             {{
-              fromUsd
-                ? `De Dólares a ${asset.symbol}`
-                : `De ${asset.symbol} a Dólares`
+            fromUsd
+            ? `De Dólares a ${asset.symbol}`
+            : `De ${asset.symbol} a Dólares`
             }}
           </button>
 
@@ -72,9 +72,7 @@
             </label>
           </div>
 
-          <span class="text-xl"
-            >{{ convertResult }} {{ fromUsd ? asset.symbol : 'USD' }}</span
-          >
+          <span class="text-xl">{{ convertResult }} {{ fromUsd ? asset.symbol : 'USD' }}</span>
         </div>
       </div>
       <line-chart
@@ -87,13 +85,9 @@
 
       <h3 class="text-xl my-10">Mejores Ofertas de Cambio</h3>
       <table>
-        <tr
-          v-for="m in markets"
-          :key="`${m.exchangeID}-${m.priceUsd}`"
-          class="border-b"
-        >
+        <tr v-for="m in markets" :key="`${m.exchangeID}-${m.priceUsd}`" class="border-b">
           <td>
-            <b>{{ m.exchangeID | dollar }}</b>
+            <b>{{ m.exchangeId }}</b>
           </td>
           <td>{{ m.priceUsd | dollar }}</td>
           <td>{{ m.baseSymbol }} / {{ m.quoteSymbol }}</td>
@@ -105,9 +99,7 @@
             >
               <slot>Obtener Link</slot>
             </px-button>
-            <a v-else class="hover:underline text-green-600" target="_blanck">
-              {{ m.url }}
-            </a>
+            <a v-else class="hover:underline text-green-600" target="_blanck">{{ m.url }}</a>
           </td>
         </tr>
       </table>
@@ -196,8 +188,6 @@ export default {
           this.markets = markets
         })
         .finally(() => (this.isLoading = false))
-
-      // api.getAsset(id).then(asset => (this.asset = asset))
     }
   }
 }
